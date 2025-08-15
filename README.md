@@ -58,15 +58,6 @@ Documentos e links complementares, incluindo:
 
 ---
 
-## Requisitos do Obsidian
-
-- **Plugins recomendados**:
-  - Dataview (para gerar listas dinâmicas de arquivos e últimos acessos)
-  - Homepage (para abrir o `Mapa da Disciplina.md` como Página Inicial)
-- Estrutura de pastas padronizada para facilitar navegação e consultas via Dataview.
-
----
-
 ## Observações
 
 Este cofre serve tanto como material de estudo quanto como registro do projeto prático.  
