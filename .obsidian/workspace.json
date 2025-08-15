@@ -45,8 +45,7 @@
               "title": "Visualização em gráfico"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -194,10 +193,10 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "9a44356ccdd451e5",
+  "active": "c66186f7d623f67e",
   "lastOpenFiles": [
-    "02 - Projeto Integrador/01 - Proposta Inicial da Linguagem.md",
     "03 - Diário de Bordo/15-08-2025.md",
+    "02 - Projeto Integrador/01 - Proposta Inicial da Linguagem.md",
     "[[01.md",
     "01.md",
     "]..md",

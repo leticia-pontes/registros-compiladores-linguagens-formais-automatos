@@ -1,8 +1,8 @@
-**Grupo:**
+**Nome provisório da linguagem:**
 
 > _Quack_
 
-**Membros:**
+**Equipe:**
 
 1. Laura Yumi Osawa – Líder de Projeto / Facilitador
     
