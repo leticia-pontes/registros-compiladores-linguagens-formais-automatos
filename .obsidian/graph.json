@@ -5,18 +5,33 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [],
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "tag:#diario ",
+      "color": {
+        "a": 1,
+        "rgb": 9067765
+      }
+    },
+    {
+      "query": "tag:#projeto",
+      "color": {
+        "a": 1,
+        "rgb": 14727936
+      }
+    }
+  ],
   "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 1,
-  "lineSizeMultiplier": 1,
+  "nodeSizeMultiplier": 1.347920997921,
+  "lineSizeMultiplier": 1.64141164241164,
   "collapse-forces": true,
-  "centerStrength": 0.518713248970312,
-  "repelStrength": 10,
+  "centerStrength": 0.400997920997921,
+  "repelStrength": 9.002079002079,
   "linkStrength": 1,
-  "linkDistance": 250,
+  "linkDistance": 290,
   "scale": 1,
   "close": true
 }

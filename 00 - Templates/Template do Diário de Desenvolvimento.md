@@ -1,3 +1,7 @@
+---
+tags:
+  - diario
+---
 ## Diário de Desenvolvimento - Projeto Integrador de Engenharia de Software 
 
 **Grupo:** _Quack_

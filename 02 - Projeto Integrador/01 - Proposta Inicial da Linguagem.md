@@ -1,3 +1,7 @@
+---
+tags:
+  - projeto
+---
 **Nome provisório da linguagem:**
 
 > _Quack_
