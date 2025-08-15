@@ -1,20 +1,20 @@
-**Título:**
+**Grupo:**
 
-> _Nome provisório da linguagem_
+> _Quack_
 
-**Equipe:**
+**Membros:**
 
-1. Laura Yumi Osawa () – Líder de Projeto / Facilitador
+1. Laura Yumi Osawa – Líder de Projeto / Facilitador
     
-2. Letícia Alves de Pontes (1979942) – Responsável Técnico / Arquiteto de Linguagem
+2. Letícia Alves de Pontes – Responsável Técnico / Arquiteto de Linguagem
     
-3. Nome – Pesquisador (Paradigmas e Inspirações)
+3. Cauã dos Santos Pereira – Pesquisador (Paradigmas e Inspirações)
     
-4. José Victor – Documentador / Gestor do Diário
+4. José Victor Santos Tranquilino de Souza – Documentador / Gestor do Diário
     
-5. Nome – Designer de Sintaxe / UX
+5. Emerson Caique Alexandre Felizardo – Designer de Sintaxe / UX
     
-6. Nome – Tester / Avaliador
+6. Hugo Pacheco Medeiros – Tester / Avaliador
     
 
 ---
