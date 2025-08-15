@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "3efad3b9e7bc2407",
+        "id": "158f11a7d3eae18d",
         "type": "tabs",
         "children": [
           {
-            "id": "eb6f2c5e06914fdb",
+            "id": "2436891c9cb6deda",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "02 - Projeto Integrador/01 - Proposta Inicial da Linguagem.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "01 - Proposta Inicial da Linguagem"
+              "title": "Nova aba"
             }
           }
         ]
@@ -165,26 +161,26 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "eb6f2c5e06914fdb",
+  "active": "2436891c9cb6deda",
   "lastOpenFiles": [
     "06 - Cronograma Preliminar/06 - Cronograma Preliminar.md",
     "06 - Cronograma Preliminar",
-    "Cronograma Preliminar.md",
-    "02 - Projeto Integrador/01 - Proposta Inicial da Linguagem.md",
-    "03 - Diário de Bordo/Semana 1 (15-08-2025).md",
     "05 - Imagens/Semana 01/Repositório para armazenar as anotações.png",
+    "05 - Imagens/Semana 01/Cofre no Obsidian para anotações.png",
+    "05 - Imagens/Semana 01",
+    "05 - Imagens",
+    "02 - Projeto Integrador/01 - Proposta Inicial da Linguagem.md",
+    "Cronograma Preliminar.md",
+    "03 - Diário de Bordo/Semana 1 (15-08-2025).md",
     "05 - Imagens/Semana 01/Repositório para armazenar as anotações.png.png",
     "05 - Imagens/Semana 01/Captura de tela 2025-08-15 192935.png",
     "00 - Templates/Template do Diário de Desenvolvimento.md",
     "Sem título.canvas",
-    "05 - Imagens/Semana 01/Cofre no Obsidian para anotações.png",
     "05 - Imagens/Semana 01/Captura de tela 2025-08-15 192213.png",
     "05 - Imagens/Semana 01/Repositório para as anotações.png",
     "05 - Imagens/Semana 01/Captura de tela 2025-08-15 191736.png",
     "05 - Imagens/Semana 01/Captura de tela 2025-08-15 191708.png",
-    "05 - Imagens/Semana 01",
     "Mapa da Disciplina.md",
-    "05 - Imagens",
     "01 - Conhecimentos Teóricos/01 - Introdução.md",
     "README.md",
     "[[01.md",
