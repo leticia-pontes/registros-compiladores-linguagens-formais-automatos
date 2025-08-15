@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "bd0e4f52bf9b5706",
+        "id": "0485b473fe86b1c9",
         "type": "tabs",
         "children": [
           {
-            "id": "e0adf8d60985eafe",
+            "id": "c9b826f161c2a969",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nova aba"
+              "title": "README"
             }
           }
         ]
@@ -161,11 +165,14 @@
       "canvas:Criar novo canvas": false,
       "daily-notes:Abrir a nota de hoje": false,
       "templates:Inserir modelo": false,
-      "command-palette:Abrir paleta de comandos": false
+      "command-palette:Abrir paleta de comandos": false,
+      "homepage:Open homepage": false
     }
   },
-  "active": "e0adf8d60985eafe",
+  "active": "c9b826f161c2a969",
   "lastOpenFiles": [
+    "Mapa da Disciplina.md",
+    "README.md",
     "01 - Conhecimentos Teóricos/01 - Introdução.md",
     "03 - Diário de Bordo/15-08-2025.md",
     "02 - Projeto Integrador/01 - Proposta Inicial da Linguagem.md",
@@ -173,9 +180,7 @@
     "01.md",
     "]..md",
     "[[.md",
-    "Mapa da Disciplina.md",
     "00 - Templates/Template do Diário de Desenvolvimento.md",
-    "README.md",
     "00 - Templates",
     "04 - Materiais de Apoio",
     "03 - Diário de Bordo",
