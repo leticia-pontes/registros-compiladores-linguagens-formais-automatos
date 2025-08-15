@@ -1,15 +1,17 @@
 ## Diário de Desenvolvimento - Projeto Integrador de Engenharia de Software 
 
-**Grupo:** [Nome do Grupo] 
+**Grupo:** _Quack_
 **Integrantes:** Laura Yumi Osawa, Letícia Alves de Pontes, Cauã dos Santos Pereira, José Victor Santos Tranquilino de Souza, Emerson Caique Alexandre Felizardo, Hugo Pacheco Medeiros.
 
 --- 
+
 ## Semana X 
 ### Informações Básicas 
 
-**Data:** DD/MM/AAAA 
+**Data:** DD/MM/2025
 **Membros presentes:** [Lista de presentes] 
 **Tema da semana:** [Tema da aula conforme cronograma] 
+
 ### Atividades Realizadas 
 
 **Descrição das atividades:** 
@@ -27,7 +29,8 @@
 
 - [Nome do membro 1]: [Tarefas realizadas] 
 - [Nome do membro 2]: [Tarefas realizadas] 
-- [Nome do membro 3]: [Tarefas realizadas] 
+- [Nome do membro 3]: [Tarefas realizadas]
+ 
 ### Dificuldades e Soluções 
 
 **Desafios encontrados:** 
@@ -74,7 +77,8 @@
 **Objetivos para próxima semana:** 
 
 - [Objetivo 1] 
-- [Objetivo 2] 
+- [Objetivo 2]
+
 ### Registros Visuais 
 
 [Espaço para capturas de tela, fotos de diagramas feitos em sala, ou outros registros visuais relevantes]
