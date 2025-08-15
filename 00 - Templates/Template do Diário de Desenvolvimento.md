@@ -8,7 +8,6 @@ tags:
 **Integrantes:** Laura Yumi Osawa, Letícia Alves de Pontes, Cauã dos Santos Pereira, José Victor Santos Tranquilino de Souza, Emerson Caique Alexandre Felizardo, Hugo Pacheco Medeiros.
 
 --- 
-
 ## Semana X 
 ### Informações Básicas 
 
