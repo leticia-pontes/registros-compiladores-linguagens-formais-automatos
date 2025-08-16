@@ -1,0 +1,33 @@
+# ==============================
+# Obsidian Vault Git Ignore
+# ==============================
+
+# Pastas internas do Obsidian que não precisam de versionamento
+.obsidian/workspace.json       # Layout da janela, posições de painéis
+.obsidian/appearance.json      # Configurações visuais
+.obsidian/plugins/             # Plugins baixados localmente
+.obsidian/themes/              # Temas instalados
+.obsidian/snapshots/           # Snapshots automáticos
+
+# Pastas de cache e histórico
+.obsidian/cache/
+.obsidian/.trash/
+.obsidian/logs/
+
+# Arquivos temporários do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos de backup de editores externos
+*~ 
+*.swp
+*.swo
+*.bak
+
+# Se você usa o Obsidian Sync
+.obsidian/obsidian.sync.json
+
+# Pastas de exportação ou exportação automática
+Export/
+
