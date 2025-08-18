@@ -17,7 +17,7 @@ sort file.name asc
 ### 02 - Projeto Integrador
 ```dataview
 table file.name as "Arquivo"
-from "02 - Projeto Prático"
+from "02 - Projeto Integrador"
 sort file.name asc
 ```
 
