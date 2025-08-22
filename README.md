@@ -53,7 +53,7 @@ Documentos e links complementares, incluindo:
 1. Navegue pelas pastas para acessar conteúdos específicos.
 2. Use o **Mapa da Disciplina** (`Mapa da Disciplina.md`) para localizar rapidamente arquivos ou consultar os últimos acessos.
 	 Foi configurada a extensão Homepage para que o arquivo seja sempre aberto ao acessar o cofre.
-3. Para registrar o desenvolvimento semanal do projeto, utilize o template de diário de bordo localizado em `00 - Templates/Template do Diário de Desenvolvimento.md`.
+3. Para registrar o desenvolvimento semanal do projeto, utilize o template de diário de bordo localizado em `00 - Templates/Template do Diário de Desenvolvimento.md` (renomeie o arquivo criado para Semana X, de acordo com a semana do projeto).
 4. Mantenha os arquivos atualizados e organizados dentro de suas respectivas pastas.
 
 ---
