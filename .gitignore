@@ -15,6 +15,9 @@
 .obsidian/.trash/
 .obsidian/logs/
 
+# Tudo do obsidian
+.obsidian*
+
 # Arquivos temporários do sistema operacional
 .DS_Store
 Thumbs.db
