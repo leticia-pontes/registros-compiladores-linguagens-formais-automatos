@@ -4,6 +4,7 @@
 
 # Pastas internas do Obsidian que não precisam de versionamento
 .obsidian/workspace.json       # Layout da janela, posições de painéis
+.obsidian/workspaces.json
 .obsidian/appearance.json      # Configurações visuais
 .obsidian/plugins/             # Plugins baixados localmente
 .obsidian/themes/              # Temas instalados
@@ -13,6 +14,9 @@
 .obsidian/cache/
 .obsidian/.trash/
 .obsidian/logs/
+
+# Tudo do obsidian
+.obsidian*
 
 # Arquivos temporários do sistema operacional
 .DS_Store
