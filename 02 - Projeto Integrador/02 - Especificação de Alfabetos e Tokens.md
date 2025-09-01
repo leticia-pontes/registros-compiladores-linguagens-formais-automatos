@@ -3,6 +3,7 @@ tags:
   - projeto
 ---
 # Alfabeto da Linguagem
+
 - Letras: a-z, A-Z
 - Dígitos: 0-9
 - Símbolos de pontuação e operadores: `{ } ( ) [ ] ; : , . " + - * / % = == != < <= > >= && || | ^ *\`
@@ -28,11 +29,12 @@ tags:
 ### Palavra-chave
 - Controle de fluxo: `if, elif, else, while, for, switch, case, return, break, continue
 - Estruturas: `function, procedure, class
-- Tipos:`Int, Decimal, String, List, Vector, Nbase
+- Tipos:`int, decimal, string, list, vector, Nbase, bool`
 ### Comentários
-- Linhas únicas: `/"
+- Linhas únicas: `/"`
 - Bloco: `""" drgxdrc """
 # Estrutura Léxica Geral
+
 - Espaços em branco: (espaço, tab, quebra de linha) separam tokens, mas não são significativos (exceto dentro de strings).
 - Identificadores: não podem colidir com palavras-chave.
 - Comentários: ignorados pelo compilador e não produzem tokens.
@@ -41,6 +43,7 @@ tags:
 - Palavras-chave: reservadas e não podem ser redefinidas.
 
 # Exemplos Concretos de Programa
+
 ```
 function transcrever(DNA){
     base_nitrogenada = "AUGC"
@@ -73,9 +76,9 @@ procedure ligar(n1: Nucleotideo, n2: Nucleotideo){
         print("Ligação proibida")
     }
 }
-
 ```
 # Diário de Decisões de Design
+
 - Case-sensitive: escolhemos por diferenciar maiúsculas/minúsculas para maior expressividade (inspirado em C++, Java).
 - Identificadores: seguem convenções modernas (letra ou `_` inicial). Números não podem começar identificadores para evitar ambiguidade.
 - Números científicos: adotamos `^` em vez de `e` para manter a proximidade com notação matemática.
