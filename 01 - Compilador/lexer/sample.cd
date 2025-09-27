@@ -6,10 +6,9 @@ func calcular_cn(amostra: string, valor_ct: float) -> string {
         return "Nao_Detectado"
     }
     amostra += " Analisada"; // Operador composto
-    let resultado = true;
+    var resultado = true;
     
-    // Token Inválido na linha 11, coluna 5: o símbolo &
-    return resultado & amostra
+    return resultado;
 }
 
 var x = 1.0e-3; // Notação científica

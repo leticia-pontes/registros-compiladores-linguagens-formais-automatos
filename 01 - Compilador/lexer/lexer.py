@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import re
 import sys
 from collections import namedtuple
@@ -6,7 +7,6 @@ from collections import namedtuple
 Token = namedtuple('Token', ['tipo', 'valor', 'linha', 'coluna'])
 
 # 2. Palavras-Chave e Mapeamento de Tipos
-# Priorizando a lista mais recente dos documentos (func, var, if, else, etc.)
 PALAVRAS_CHAVE = {
     "and": "KWD", "or": "KWD", "not": "KWD",
     "if": "KWD", "else": "KWD", "for": "KWD",
@@ -17,41 +17,54 @@ PALAVRAS_CHAVE = {
     "match": "KWD", "case": "KWD", "default": "KWD",
     "true": "KWD", "false": "KWD", "null": "KWD",
     "pub": "KWD", "extern": "KWD", "use": "KWD",
+    "int": "KWD", "float": "KWD", "bool": "KWD", 
+    "string": "KWD", "dna": "KWD", "rna": "KWD", 
+    "prot": "KWD", "void": "KWD"
 }
 
 # 3. Definição das Regras Léxicas (Regexes)
-# A ordem é crucial para a regra 'Maximal-Munch' e desambiguação
 REGRAS = [
-    # Espaços e Comentários (Ignorados)
-    (r'[\t\f\r ]+', None), # WS
-    (r'\n', None),          # NEWLINE (Tratado na contagem de linha/coluna)
-    (r'/"[^\n]*', None),    # LINE_COMMENT
-    (r'"""[\s\S]*?"""', None), # BLOCK_COMMENT
+    # 1. COMENTÁRIOS E ESPAÇOS EM BRANCO (PRIORIDADE MÁXIMA)
+    # A regex do comentário de linha foi ajustada para consumir tudo de forma não-gananciosa.
+    # A flag re.DOTALL será aplicada na compilação.
+    (r'"""([\s\S]*?)"""', None), # BLOCK_COMMENT (O mais longo e não-ganancioso)
+    (r'/"(.*?)(\n|$)', None),    # LINE_COMMENT: Começa com /" e consome TUDO até "/.
+    (r'//[^\n]*', None),         # LINE_COMMENT: Começa com // e consome TUDO até o fim da linha ou do arquivo.
+    (r'[\t\f\r ]+', None),       # WS (Espaços, tabs, etc.)
+    (r'\n', None),               # NEWLINE (Apenas para rastrear linha/coluna)
 
-    # Tokens Compostos (Prioridade sobre os simples)
-    (r'\.\.\.', 'DOT3'),     # ...
-    (r'\.\.', 'DOT2'),      # ..
-    (r'->', 'ARROW'),       # ->
-    (r'\+=', 'PLUS_EQ'),    # +=
-
-    # Literais de Texto
-    (r'"(\\"|[^"])*"', 'STRING'), # Aspas duplas, aceita escape \"
-
-    # Literais Numéricos (Floats e Inteiros - priorizar Float)
-    # Notação científica: 1.0e-3
-    (r'\d+(\.\d+)?([eE][+-]?\d+)', 'FLOAT_EXP'),
-    (r'\d+\.\d+', 'FLOAT'),
-    (r'\d+', 'DEC_INT'),
-
-    # Identificadores e Palavras-chave
-    # Começa com letra ou _, seguido por letras, dígitos ou _
-    (r'[a-zA-Z_][a-zA-Z0-9_]*', 'ID'),
-
-    # Operadores Simples
+    # 2. TOKENS COMPOSTOS E OPERADORES LONGO
+    (r'\.\.\.', 'DOT3'), 
+    (r'\.\.', 'DOT2'), 
+    (r'->', 'ARROW'), 
     (r'==', 'EQ'),
     (r'!=', 'NE'),
     (r'<=', 'LE'),
     (r'>=', 'GE'),
+    (r'\+=', 'PLUS_EQ'),
+    (r'-=', 'MINUS_EQ'),
+    (r'\*=', 'STAR_EQ'),
+    (r'/=', 'SLASH_EQ'),
+    (r'%=', 'PERC_EQ'),
+    (r'&&', 'AND_AND'),
+    (r'\|\|', 'OR_OR'),
+
+    # 3. LITERAIS DE TEXTO (Strings e Literais Biológicos)
+    (r'dna"[^"]*"', 'DNA_LIT'),  
+    (r'rna"[^"]*"', 'RNA_LIT'),  
+    (r'prot"[^"]*"', 'PROT_LIT'),
+    (r'"(\\"|[^"])*"', 'STRING'),
+
+    # 4. LITERAIS NUMÉRICOS
+    (r'\d+(\.\d+)?([eE][+-]?\d+)', 'FLOAT_EXP'),
+    (r'\d+\.\d+', 'FLOAT'),
+    (r'\d+', 'DEC_INT'),
+
+    # 5. IDENTIFICADORES E PALAVRAS-CHAVE
+    # Permite caracteres ASCII e a maioria dos caracteres UNICODE por padrão
+    (r'[a-zA-Z_][a-zA-Z0-9_]*', 'ID'),
+
+    # 6. OPERADORES E DELIMITADORES SIMPLES
     (r'=', 'ASSIGN'),
     (r'\+', 'PLUS'),
     (r'-', 'MINUS'),
@@ -61,7 +74,9 @@ REGRAS = [
     (r'\^', 'CARET'),
     (r'>', 'GT'),
     (r'<', 'LT'),
-
+    (r'&', 'AMP'),
+    (r'\|', 'BAR'),
+    
     # Delimitadores
     (r'\(', 'LPAREN'),
     (r'\)', 'RPAREN'),
@@ -73,13 +88,16 @@ REGRAS = [
     (r'\.', 'DOT'),
 ]
 
-# Compila as regexes
-regex_regras = [(re.compile(regex), token_tipo) for regex, token_tipo in REGRAS]
+# Compila as regexes com re.UNICODE e re.DOTALL para garantir a leitura correta de caracteres acentuados.
+# re.DOTALL (re.S) faz com que '.' case com TUDO, incluindo \n, essencial para BLOCK_COMMENT.
+regex_regras = [
+    (re.compile(regex, re.UNICODE | re.DOTALL), token_tipo) 
+    for regex, token_tipo in REGRAS
+]
 
 def analise_lexica(codigo_fonte):
     """
     Realiza a análise léxica do código-fonte e retorna a lista de tokens.
-    Implementa o rastreamento de linha/coluna e o tratamento de erro.
     """
     tokens = []
     linha = 1
@@ -88,35 +106,31 @@ def analise_lexica(codigo_fonte):
 
     while pos < len(codigo_fonte):
         match = None
-
-        # 1. Tenta casar com as regras de tokenização
-        for regex, token_tipo in regex_regras:
+        token_tipo = None
+        
+        # 1. Tenta casar com as regras de tokenização na ordem de prioridade
+        for regex, t_tipo in regex_regras:
             m = regex.match(codigo_fonte, pos)
             if m:
                 match = m
+                token_tipo = t_tipo
                 break
         
         if match:
             valor = match.group(0)
-            token_tipo = match[0]
-            
-            # Atualiza a posição
             proxima_pos = match.end()
             tamanho_token = len(valor)
 
-            # 2. Tratamento de Espaços, Comentários e Quebras de Linha
+            # 2. Tratamento de Elementos Ignorados (Espaços e Comentários)
             if token_tipo is None:
-                if valor == '\n':
-                    linha += 1
-                    coluna = 1
-                else:
-                    # Conta quebras de linha dentro de comentários de bloco
-                    for char in valor:
-                        if char == '\n':
-                            linha += 1
-                            coluna = 1
-                        else:
-                            coluna += 1
+                
+                # Conta quebras de linha dentro do token ignorado (WS, NEWLINE, Comentários)
+                for char in valor:
+                    if char == '\n':
+                        linha += 1
+                        coluna = 1
+                    else:
+                        coluna += 1
                 
                 pos = proxima_pos
                 continue
@@ -130,7 +144,7 @@ def analise_lexica(codigo_fonte):
             tokens.append(Token(token_tipo, valor, linha, coluna))
 
             # 5. Atualiza a Coluna
-            # Assumindo que o Lexer do seu projeto incrementa a coluna APÓS o token
+            # Incrementa a coluna com o tamanho do token (para o PRÓXIMO token)
             coluna += tamanho_token
             pos = proxima_pos
         
@@ -140,15 +154,8 @@ def analise_lexica(codigo_fonte):
             print(f"\nERRO LÉXICO: Caractere não reconhecido '{caractere_invalido}' "
                   f"encontrado na Linha {linha}, Coluna {coluna}.")
             
-            # Estratégia de pânico: consome o caractere e tenta continuar
-            if caractere_invalido == '\n':
-                linha += 1
-                coluna = 1
-            else:
-                coluna += 1
-            
-            # Retorna o token de erro e encerra, conforme a exigência do erro ser retornado
-            # Você pode escolher consumir o caractere e continuar para encontrar mais erros.
+            # Retorna o token de erro e encerra, conforme a exigência de reportar o erro
+            # e parar a análise.
             return [Token("LEXICAL_ERROR", caractere_invalido, linha, coluna)]
 
     return tokens
@@ -165,20 +172,24 @@ def imprimir_tabela(tokens):
 # 7. Execução Principal
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Uso: python lexer.py sample.cd")
+        print("Uso: python lexer.py <arquivo_fonte.cd>")
         sys.exit(1)
     
     caminho_arquivo = sys.argv[1]
     
     try:
+        # Garante a leitura do arquivo como UTF-8
         with open(caminho_arquivo, 'r', encoding='utf-8') as f:
             source_code = f.read()
     except FileNotFoundError:
         print(f"Erro: O arquivo '{caminho_arquivo}' não foi encontrado.")
         sys.exit(1)
+    except UnicodeDecodeError:
+        print(f"Erro: Falha na decodificação do arquivo. Certifique-se de que '{caminho_arquivo}' está salvo em UTF-8.")
+        sys.exit(1)
 
     lista_tokens = analise_lexica(source_code)
 
-    # Imprime a tabela apenas se não for um erro léxico que encerrou
-    if not lista_tokens or lista_tokens[0].tipo != "LEXICAL_ERROR":
+    # Imprime a tabela apenas se a análise não foi interrompida por um erro léxico
+    if lista_tokens and lista_tokens[0].tipo != "LEXICAL_ERROR":
         imprimir_tabela(lista_tokens)
