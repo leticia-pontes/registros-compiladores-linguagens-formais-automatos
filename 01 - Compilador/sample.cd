@@ -1,0 +1,16 @@
+/" Análise de PCR em tempo real "/
+func calcular_cn(amostra: string, valor_ct: float) -> string {
+    if valor_ct <= 20.0 {
+        return "Alta_Concentracao"
+    } else if valor_ct > 35.0 {
+        return "Nao_Detectado"
+    }
+    amostra += " Analisada"; // Operador composto
+    let resultado = true;
+    
+    // Token Inválido na linha 11, coluna 5: o símbolo &
+    return resultado & amostra
+}
+
+var x = 1.0e-3; // Notação científica
+x += 0.001;
